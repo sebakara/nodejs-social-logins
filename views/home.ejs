@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <% if (user) { %>
+            <h1>Welcome, <%= user.displayName %>!</h1>
+            <img class="profile-img" src="<%= user.photos[0].value %>" alt="Profile Picture">
+            <p>You're successfully logged in.</p>
+            <button class="logout-btn" onclick="location.href='/logout'">Logout</button>
+        <% } else { %>
+            <h1>Welcome, Guest!</h1>
+            <p>Please login to continue.</p>
+            <button class="google-btn" onclick="location.href='/auth/google'">Login with Google</button>
+            <button class="facebook-btn" onclick="location.href='/auth/facebook'">Login with Facebook</button>
+        <% } %>
+    </div>
+</body>
+</html>
